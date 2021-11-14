@@ -8,9 +8,7 @@ void rand_matrix_builder(time_t seconds,float **matrix,int L, int C){
 	printf("Building matrix...\n");
 	for (int l = 0; l < L; l++)
 		for (int c = 0; c < C; c++)
-			//matrix[l][c] = 1;
 			matrix[l][c] = 10*((float)(rand()-(RAND_MAX>>1))/((float)(RAND_MAX)));
-			//printf("a(%d,%d)=%.2f\t",l,c,matrix[l][c]);
 }
 
 void matrix_printer(float **matrix,int L, int C){	
@@ -21,6 +19,8 @@ void matrix_printer(float **matrix,int L, int C){
 	}
 	printf("\n\n");
 }
+
+
 
 int main (int argc, char *argv[]) {
 	// Initializations
@@ -69,21 +69,27 @@ int main (int argc, char *argv[]) {
 	
 	
 	// Saving  matrices
-	char m1_name[100] = "m1_";
-	printf("%s\n",m1_name);
+	char m1_name[100] = "";
 	strcat(m1_name,now);
-	printf("%s\n",m1_name);
+	strcat(m1_name,"_m1");
 	strcat(m1_name,".dat");
-	printf("%s\n",m1_name);
-	char m2_name[100] = "m2_";
+	char m2_name[100] = "";
 	strcat(m2_name,now);
+	strcat(m2_name,"_m2");
 	strcat(m2_name,".dat");
-	printf("%s\n",m2_name);
 	
 	FILE * fp1;
 	fp1 = fopen (m1_name, "w+");
+	fprintf(fp1,"%d %d\n",dims[0],dims[1]);
+	for (int l = 0; l < dims[0]; l++)
+		for (int c = 0; c < dims[1]; c++)
+			fprintf(fp1,"c%d%d %f\n",l,c,10*((float)(rand()-(RAND_MAX>>1))/((float)(RAND_MAX))));
 	FILE * fp2;
 	fp2 = fopen (m2_name, "w+");
+	fprintf(fp2,"%d %d\n",dims[2],dims[3]);
+	for (int l = 0; l < dims[2]; l++)
+		for (int c = 0; c < dims[3]; c++)
+			fprintf(fp2,"c%d%d %f\n",l,c,10*((float)(rand()-(RAND_MAX>>1))/((float)(RAND_MAX))));
 	
 	
 	
