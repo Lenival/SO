@@ -3,6 +3,10 @@
 #include <stdlib.h>
 #include <string.h>
 
+float **m1;
+float **m2;
+int L1,C1,L2,C2;
+	
 void rand_matrix_builder(time_t seconds,float **matrix,int L, int C){
 	srand((unsigned int)seconds);	// Random seed
 	printf("Building matrix...\n");
@@ -43,7 +47,8 @@ int main (int argc, char *argv[]) {
 	fp1 = fopen (argv[1], "r");
 	fscanf(fp1,"%d %d",&L1,&C1);
 	
-	float **m1=(float**)malloc(L1*sizeof(float*));
+	//float **m1=(float**)malloc(L1*sizeof(float*));
+	m1=(float**)malloc(L1*sizeof(float*));
 	for(int l = 0 ; l < L1 ; l++){
 		m1[l]=(float*)malloc(C1*sizeof(float));
 		for (int c=0; c < C1; c++)
@@ -55,7 +60,8 @@ int main (int argc, char *argv[]) {
 	fp2 = fopen (argv[2], "r");
 	fscanf(fp2,"%d %d",&L2,&C2);
 	
-	float **m2=(float**)malloc(L2*sizeof(float*));
+	//float **m2=(float**)malloc(L2*sizeof(float*));
+	m2=(float**)malloc(L2*sizeof(float*));
 	for(int l = 0 ; l < L2 ; l++){
 		m2[l]=(float*)malloc(C2*sizeof(float));
 		for (int c=0; c < C2; c++)
@@ -63,43 +69,44 @@ int main (int argc, char *argv[]) {
 	}
 	//matrix_printer(m2,L2,C2);
 	
-	float **result=(float**)malloc(L1*sizeof(float*));
-	for(int l = 0 ; l < L1 ; l++){
-		result[l]=(float*)calloc(C2,sizeof(float));
-		for (int c=0; c < C2; c++)
-			for (int rc=0; rc < C1; rc++)
-				result[l][c]+=m1[l][rc]*m2[rc][c];
-	}
-	matrix_printer(result,L1,C2);
+	// Closing matrix files
+	fclose(fp1);
+	fclose(fp2);
 	
+	// Opening result matrix file
 	FILE * fp3;
-	char result_name[100];
-	char str_temp1[100];
-	char str_temp2[100];
+	char result_name[100]="";
+	char str_temp1[100]="";
+	char str_temp2[100]="";
 	sprintf(result_name,"%s_%s_result.dat",strncpy(str_temp1, argv[1], strlen(argv[1])-4),strncpy(str_temp2, argv[2], strlen(argv[2])-4));
-	//printf("\n\n%s\n\n", result_name);
 	fp3 = fopen (result_name, "w+");
-	for (int l = 0; l < L1; l++)
-		for (int c = 0; c < C2; c++)
-			fprintf(fp3,"c%d%d %f\n",l,c,result[l][c]);
+	fprintf(fp3,"%d %d\n",L1,C2);
 	
+	// Matrix product
+	float temp;
+	for(int l = 0 ; l < L1 ; l++){
+		for (int c=0; c < C2; c++){
+			temp = 0;
+			for (int rc=0; rc < C1; rc++)
+				temp+=m1[l][rc]*m2[rc][c];
+			fprintf(fp3,"c%d%d %f\n",l,c,temp);
+		}
+	}
 	
-	
+	// Freeing memory
 	for(int l = 0 ; l < L1 ; l++)
 		free(m1[l]);
 	free(m1);
 	for(int l = 0 ; l < L2 ; l++)
 		free(m2[l]);
 	free(m2);
-	for(int l = 0 ; l < L1 ; l++)
-		free(result[l]);
-	free(result);
-	fclose(fp1);
-	fclose(fp2);
+	
+	// Final time measurment
 	toc = clock();
-	fclose(fp3);
 	printf("\nThe process takes %f clocks cicles\n", ((double)(toc-tic)))/CLOCKS_PER_SEC;
 	time(&s_end);
+	fprintf(fp3,"%li\n",s_end-s_start);
+	fclose(fp3);
 	printf("\nThe process takes %li seconds\n", s_end-s_start);
 	return(0);
 }
