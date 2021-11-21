@@ -75,7 +75,7 @@ int main (int argc, char *argv[]) {
 	
 	// Opening result matrix file
 	FILE * fp3;
-	char result_name[100]="";
+	char result_name[100]="seq/";
 	char str_temp1[100]="";
 	char str_temp2[100]="";
 	sprintf(result_name,"%s_%s_result.dat",strncpy(str_temp1, argv[1], strlen(argv[1])-4),strncpy(str_temp2, argv[2], strlen(argv[2])-4));
