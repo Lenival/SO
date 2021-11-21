@@ -23,10 +23,10 @@ int main (int argc, char *argv[]) {
 	
 	// Matrices file names
 	char m1_name[100] = "";
-	sprintf(m1_name,"%dx%d_",dims[0],dims[1]);
 	char m2_name[100] = "";
-	sprintf(m2_name,"%dx%d_",dims[2],dims[3]);
 	if(argc < 7){
+		sprintf(m1_name,"%dx%d_",dims[0],dims[1]);
+		sprintf(m2_name,"%dx%d_",dims[2],dims[3]);
 		strcat(m1_name,now);
 		strcat(m2_name,now);
 		strcat(m1_name,"_m1");
@@ -34,6 +34,7 @@ int main (int argc, char *argv[]) {
 		strcat(m2_name,"_m2");
 		strcat(m2_name,".dat");
 	}else{
+		//printf("File names %s and %s", argv[5], argv[6]);
 		strcat(m1_name,argv[5]);
 		strcat(m2_name,argv[6]);
 	}
