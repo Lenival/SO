@@ -606,10 +606,10 @@
      <string notr="true">background-color: blue;</string>
     </property>
     <property name="minimum">
-     <number>1</number>
+     <number>0</number>
     </property>
     <property name="maximum">
-     <number>299</number>
+     <number>300</number>
     </property>
     <property name="value">
      <number>199</number>
@@ -758,10 +758,10 @@
      <string notr="true">background-color: red;</string>
     </property>
     <property name="minimum">
-     <number>1</number>
+     <number>0</number>
     </property>
     <property name="maximum">
-     <number>299</number>
+     <number>300</number>
     </property>
     <property name="value">
      <number>199</number>
@@ -946,10 +946,10 @@
      <string notr="true">background-color: green;</string>
     </property>
     <property name="minimum">
-     <number>1</number>
+     <number>0</number>
     </property>
     <property name="maximum">
-     <number>299</number>
+     <number>300</number>
     </property>
     <property name="value">
      <number>199</number>
@@ -1095,10 +1095,10 @@
      <string notr="true">background-color: purple;</string>
     </property>
     <property name="minimum">
-     <number>1</number>
+     <number>0</number>
     </property>
     <property name="maximum">
-     <number>299</number>
+     <number>300</number>
     </property>
     <property name="value">
      <number>199</number>
@@ -1260,10 +1260,10 @@
      <string notr="true">background-color: orange;</string>
     </property>
     <property name="minimum">
-     <number>1</number>
+     <number>0</number>
     </property>
     <property name="maximum">
-     <number>299</number>
+     <number>300</number>
     </property>
     <property name="value">
      <number>199</number>

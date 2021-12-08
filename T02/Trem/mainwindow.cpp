@@ -20,11 +20,12 @@ MainWindow::MainWindow(QWidget *parent) :
     QSemaphore *s134 = new QSemaphore(2);
     QSemaphore *s457 = new QSemaphore(2);
     QSemaphore *s256 = new QSemaphore(2);
+    QSemaphore *stop = new QSemaphore(5);
 
     //Justando semáforos às posições iniciais dos trens
 
 
-    QVector<QSemaphore*> *sem = new QVector<QSemaphore*>(7);
+    QVector<QSemaphore*> *sem = new QVector<QSemaphore*>(11);
     sem->insert(0,s1);
     sem->insert(1,s2);
     sem->insert(2,s3);
@@ -35,6 +36,8 @@ MainWindow::MainWindow(QWidget *parent) :
     sem->insert(7,s134);
     sem->insert(8,s457);
     sem->insert(9,s256);
+    sem->insert(10,stop);
+
 
     //Cria o trem com seu (ID, posição X, posição Y)
     //trem1 = new Trem(1,60,30, m12, m41);
@@ -197,6 +200,7 @@ void MainWindow::on_pushButton_2_clicked()
     trem5->terminate();
     ui->pushButton_2->setDisabled(true);
     ui->pushButton->setEnabled(true);
+    //while (trem1->wait()) {}
 }
 
 void MainWindow::on_verticalSlider1_valueChanged(int value)

@@ -6,6 +6,7 @@
 #include <QSemaphore>
 
 #define START_SPEED 199
+#define MAX_SPEED 300
 
 /*
  * Classe Trem herda QThread
