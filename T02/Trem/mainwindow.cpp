@@ -10,13 +10,13 @@ MainWindow::MainWindow(QWidget *parent) :
     //QVector<int> caminhosCriticos = QVector<int>(7);
 
     //Cria o vetor de QSemaphore
-    QSemaphore *s1 = new QSemaphore(3);
-    QSemaphore *s2 = new QSemaphore(3);
-    QSemaphore *s3 = new QSemaphore(3);
-    QSemaphore *s4 = new QSemaphore(3);
-    QSemaphore *s5 = new QSemaphore(3);
-    QSemaphore *s6 = new QSemaphore(3);
-    QSemaphore *s7 = new QSemaphore(3);
+    QSemaphore *s1 = new QSemaphore(1);
+    QSemaphore *s2 = new QSemaphore(1);
+    QSemaphore *s3 = new QSemaphore(1);
+    QSemaphore *s4 = new QSemaphore(1);
+    QSemaphore *s5 = new QSemaphore(1);
+    QSemaphore *s6 = new QSemaphore(1);
+    QSemaphore *s7 = new QSemaphore(1);
     QSemaphore *s134 = new QSemaphore(2);
     QSemaphore *s457 = new QSemaphore(2);
     QSemaphore *s256 = new QSemaphore(2);

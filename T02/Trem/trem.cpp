@@ -8,7 +8,8 @@
 #define TREM_APONTA(c) sem->at(c)->acquire(1)
 #define TREM_APONTA_INICIA(c) sem->at(c)->acquire(2)
 #define TREM_INICIA(c) TREM_APONTA(c)
-#define TREM_LIBERA(c) sem->at(c)->release(1+E_CAMINHO(c))
+//#define TREM_LIBERA(c) sem->at(c)->release(1+E_CAMINHO(c))
+#define TREM_LIBERA(c) sem->at(c)->release(1)
 #define CAMINHO_1 0
 #define CAMINHO_2 1
 #define CAMINHO_3 2
@@ -36,23 +37,24 @@ Trem::Trem(int ID, int x, int y, QVector<QSemaphore*> *sem){
     this->caminhosCriticos = 0;
     switch (ID) {
     case 2:
-        TREM_APONTA_INICIA(CAMINHO_1);
-        //TREM_INICIA(CAMINHO_1);
+        //TREM_APONTA_INICIA(CAMINHO_1);
+        TREM_INICIA(CAMINHO_1);
         TREM_INICIOU(CAMINHO_1);
         break;
     case 3:
-        TREM_APONTA_INICIA(CAMINHO_2);
-        //TREM_INICIA(CAMINHO_2);
+        //TREM_APONTA_INICIA(CAMINHO_2);
+        TREM_INICIA(CAMINHO_2);
         TREM_INICIOU(CAMINHO_2);
         break;
     case 4:
         //TREM_APONTA(CAMINHO_3);
         TREM_APONTA(CRUZAMENTO_134);
         TREM_APONTA(CRUZAMENTO_457);
-        TREM_APONTA_INICIA(CAMINHO_3);
+        TREM_INICIA(CAMINHO_3);
+        //TREM_APONTA_INICIA(CAMINHO_3);
         TREM_INICIOU(CAMINHO_3);
         //TREM_INICIOU(CRUZAMENTO_134);
-        TREM_APONTA(CAMINHO_4);
+        //TREM_APONTA(CAMINHO_4);
         break;
     case 5:
         TREM_APONTA(CRUZAMENTO_457);
@@ -60,9 +62,10 @@ Trem::Trem(int ID, int x, int y, QVector<QSemaphore*> *sem){
         TREM_INICIOU(CRUZAMENTO_457);
         //TREM_APONTA(CAMINHO_5);
         //TREM_APONTA(CRUZAMENTO_256);
-        TREM_APONTA_INICIA(CAMINHO_5);
+        //TREM_APONTA_INICIA(CAMINHO_5);
+        TREM_INICIA(CAMINHO_5);
         TREM_INICIOU(CAMINHO_5);
-        TREM_APONTA(CAMINHO_6);
+        //TREM_APONTA(CAMINHO_6);
         break;
     default:
         break;
@@ -83,11 +86,10 @@ void Trem::run(){
                         this->
                         //sem->at(0)->acquire(2);
                         TREM_APONTA(CRUZAMENTO_134);
-                        TREM_APONTA_INICIA(CAMINHO_1);
-                        //TREM_INICIA(CAMINHO_1);
-                        //sem->at(0)->acquire(2);
+                        //TREM_APONTA_INICIA(CAMINHO_1);
+                        TREM_INICIA(CAMINHO_1);
                         TREM_INICIOU(CAMINHO_1);
-                        TREM_APONTA(CAMINHO_3);
+                        //TREM_APONTA(CAMINHO_3);
                         //printf("Chegou aqui com x== %d e %d recursos disponíveis!\n",x,sem->at(2)->available());
                     }
                 }
@@ -134,10 +136,10 @@ void Trem::run(){
                         TREM_APONTA(CRUZAMENTO_256);
                         TREM_APONTA(CRUZAMENTO_457);
                         //TREM_APONTA(CRUZAMENTO_134);
-                        TREM_APONTA_INICIA(CAMINHO_2);
+                        //TREM_APONTA_INICIA(CAMINHO_2);
+                        TREM_INICIA(CAMINHO_2);
                         TREM_INICIOU(CAMINHO_2);
-                        //sem->at(4)->acquire(1);
-                        TREM_APONTA(CAMINHO_5);
+                        //TREM_APONTA(CAMINHO_5);
                     }
                     if(x==340 && TREM_ESTEVE_NO(CAMINHO_1)){
                         TREM_LIBERA(CAMINHO_1);
@@ -152,7 +154,7 @@ void Trem::run(){
                         TREM_INICIOU(CRUZAMENTO_256);
                         TREM_INICIOU(CAMINHO_5);
                         //TREM_APONTA(CRUZAMENTO_457);
-                        TREM_APONTA(CAMINHO_4);
+                        //TREM_APONTA(CAMINHO_4);
                     }
                 }
                 else {if (x > 330 && y == 150){
@@ -172,7 +174,7 @@ void Trem::run(){
                             TREM_INICIOU(CRUZAMENTO_457);
                         }
                         if(x==460 && TREM_ESTEVE_NO(CAMINHO_5)){
-                            TREM_APONTA(CAMINHO_1);
+                            //TREM_APONTA(CAMINHO_1);
                             TREM_LIBERA(CAMINHO_5);
                             TREM_LIBEROU(CAMINHO_5);
                             //printf("Chegou aqui com x== %d e %d recursos disponíveis!\n",x,sem->at(0)->available());
@@ -219,9 +221,10 @@ void Trem::run(){
                     if(x == 740){
                         //TREM_APONTA(CAMINHO_6);
                         TREM_APONTA(CRUZAMENTO_256);
-                        TREM_APONTA_INICIA(CAMINHO_6);
+                        //TREM_APONTA_INICIA(CAMINHO_6);
+                        TREM_INICIA(CAMINHO_6);
                         TREM_INICIOU(CAMINHO_6);
-                        TREM_APONTA(CAMINHO_2);
+                        //TREM_APONTA(CAMINHO_2);
                     }
                     if(x == 610){
                         TREM_INICIA(CAMINHO_2);
@@ -270,7 +273,7 @@ void Trem::run(){
                     if(x==330){
                         //TREM_LIBERA(CAMINHO_3);
                         //TREM_LIBEROU(CAMINHO_3);
-                        TREM_APONTA(CAMINHO_7);
+                        //TREM_APONTA(CAMINHO_7);
                     }
                     if(x==340 && TREM_ESTEVE_NO(CRUZAMENTO_134)){
                         TREM_LIBERA(CRUZAMENTO_134);
@@ -306,10 +309,10 @@ void Trem::run(){
                     if(y==160){
                         TREM_APONTA(CRUZAMENTO_134);
                         TREM_APONTA(CRUZAMENTO_457);
-                        TREM_APONTA_INICIA(CAMINHO_3);
-                        //TREM_INICIA(CAMINHO_3);
+                        //TREM_APONTA_INICIA(CAMINHO_3);
+                        TREM_INICIA(CAMINHO_3);
                         TREM_INICIOU(CAMINHO_3);
-                        TREM_APONTA(CAMINHO_4);
+                        //TREM_APONTA(CAMINHO_4);
                         //printf("Chegou aqui com x== %d e %d recursos disponíveis!\n",x,sem->at(2)->available());
                     }
                 }
@@ -356,10 +359,10 @@ void Trem::run(){
                     if(x == 470){
                         TREM_APONTA(CRUZAMENTO_457);
                         TREM_APONTA(CRUZAMENTO_256);
-                        TREM_APONTA_INICIA(CAMINHO_7);
-                        //TREM_INICIA(CAMINHO_7);
+                        //TREM_APONTA_INICIA(CAMINHO_7);
+                        TREM_INICIA(CAMINHO_7);
                         TREM_INICIOU(CAMINHO_7);
-                        TREM_APONTA(CAMINHO_5);
+                        //TREM_APONTA(CAMINHO_5);
                     }
                 }
                 else{
@@ -370,7 +373,7 @@ void Trem::run(){
                         TREM_INICIA(CAMINHO_5);
                         TREM_INICIOU(CAMINHO_5);
                         TREM_INICIOU(CRUZAMENTO_457);
-                        TREM_APONTA(CAMINHO_6);
+                        //TREM_APONTA(CAMINHO_6);
                     }
                 }
                 if(velocidade)
