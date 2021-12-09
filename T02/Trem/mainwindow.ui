@@ -1294,7 +1294,7 @@
    <widget class="QLabel" name="label_sem">
     <property name="geometry">
      <rect>
-      <x>450</x>
+      <x>430</x>
       <y>290</y>
       <width>81</width>
       <height>20</height>
@@ -1307,7 +1307,7 @@
    <widget class="QLabel" name="label_sem_1">
     <property name="geometry">
      <rect>
-      <x>540</x>
+      <x>520</x>
       <y>290</y>
       <width>21</width>
       <height>20</height>
@@ -1320,7 +1320,7 @@
    <widget class="QLabel" name="label_sem_2">
     <property name="geometry">
      <rect>
-      <x>560</x>
+      <x>540</x>
       <y>290</y>
       <width>21</width>
       <height>20</height>
@@ -1333,7 +1333,7 @@
    <widget class="QLabel" name="label_sem_3">
     <property name="geometry">
      <rect>
-      <x>580</x>
+      <x>560</x>
       <y>290</y>
       <width>21</width>
       <height>20</height>
@@ -1346,7 +1346,7 @@
    <widget class="QLabel" name="label_sem_4">
     <property name="geometry">
      <rect>
-      <x>600</x>
+      <x>580</x>
       <y>290</y>
       <width>21</width>
       <height>20</height>
@@ -1359,7 +1359,7 @@
    <widget class="QLabel" name="label_sem_5">
     <property name="geometry">
      <rect>
-      <x>640</x>
+      <x>620</x>
       <y>290</y>
       <width>21</width>
       <height>20</height>
@@ -1372,7 +1372,7 @@
    <widget class="QLabel" name="label_sem_6">
     <property name="geometry">
      <rect>
-      <x>620</x>
+      <x>600</x>
       <y>290</y>
       <width>21</width>
       <height>20</height>
@@ -1385,7 +1385,7 @@
    <widget class="QLabel" name="label_sem_7">
     <property name="geometry">
      <rect>
-      <x>660</x>
+      <x>640</x>
       <y>290</y>
       <width>21</width>
       <height>20</height>
@@ -1398,7 +1398,7 @@
    <widget class="QLabel" name="trem_1">
     <property name="geometry">
      <rect>
-      <x>450</x>
+      <x>430</x>
       <y>310</y>
       <width>91</width>
       <height>20</height>
@@ -1411,7 +1411,7 @@
    <widget class="QLabel" name="trem_2">
     <property name="geometry">
      <rect>
-      <x>450</x>
+      <x>430</x>
       <y>330</y>
       <width>91</width>
       <height>20</height>
@@ -1424,7 +1424,7 @@
    <widget class="QLabel" name="trem_3">
     <property name="geometry">
      <rect>
-      <x>450</x>
+      <x>430</x>
       <y>350</y>
       <width>91</width>
       <height>20</height>
@@ -1437,7 +1437,7 @@
    <widget class="QLabel" name="trem_4">
     <property name="geometry">
      <rect>
-      <x>450</x>
+      <x>430</x>
       <y>370</y>
       <width>91</width>
       <height>20</height>
@@ -1450,7 +1450,7 @@
    <widget class="QLabel" name="trem_5">
     <property name="geometry">
      <rect>
-      <x>450</x>
+      <x>430</x>
       <y>390</y>
       <width>91</width>
       <height>20</height>
@@ -1463,7 +1463,7 @@
    <widget class="QLabel" name="label_rec_1_1">
     <property name="geometry">
      <rect>
-      <x>540</x>
+      <x>520</x>
       <y>310</y>
       <width>21</width>
       <height>20</height>
@@ -1476,7 +1476,7 @@
    <widget class="QLabel" name="label_rec_2_1">
     <property name="geometry">
      <rect>
-      <x>540</x>
+      <x>520</x>
       <y>330</y>
       <width>21</width>
       <height>20</height>
@@ -1489,7 +1489,7 @@
    <widget class="QLabel" name="label_rec_3_1">
     <property name="geometry">
      <rect>
-      <x>540</x>
+      <x>520</x>
       <y>350</y>
       <width>21</width>
       <height>20</height>
@@ -1502,7 +1502,7 @@
    <widget class="QLabel" name="label_rec_4_1">
     <property name="geometry">
      <rect>
-      <x>540</x>
+      <x>520</x>
       <y>370</y>
       <width>21</width>
       <height>20</height>
@@ -1515,7 +1515,7 @@
    <widget class="QLabel" name="label_rec_5_1">
     <property name="geometry">
      <rect>
-      <x>540</x>
+      <x>520</x>
       <y>390</y>
       <width>21</width>
       <height>20</height>
@@ -1528,7 +1528,7 @@
    <widget class="QLabel" name="label_rec_2_2">
     <property name="geometry">
      <rect>
-      <x>560</x>
+      <x>540</x>
       <y>330</y>
       <width>21</width>
       <height>20</height>
@@ -1541,7 +1541,7 @@
    <widget class="QLabel" name="label_rec_4_2">
     <property name="geometry">
      <rect>
-      <x>560</x>
+      <x>540</x>
       <y>370</y>
       <width>21</width>
       <height>20</height>
@@ -1554,7 +1554,7 @@
    <widget class="QLabel" name="label_rec_5_2">
     <property name="geometry">
      <rect>
-      <x>560</x>
+      <x>540</x>
       <y>390</y>
       <width>21</width>
       <height>20</height>
@@ -1567,7 +1567,7 @@
    <widget class="QLabel" name="label_rec_1_2">
     <property name="geometry">
      <rect>
-      <x>560</x>
+      <x>540</x>
       <y>310</y>
       <width>21</width>
       <height>20</height>
@@ -1580,7 +1580,7 @@
    <widget class="QLabel" name="label_rec_3_2">
     <property name="geometry">
      <rect>
-      <x>560</x>
+      <x>540</x>
       <y>350</y>
       <width>21</width>
       <height>20</height>
@@ -1593,7 +1593,7 @@
    <widget class="QLabel" name="label_rec_2_3">
     <property name="geometry">
      <rect>
-      <x>580</x>
+      <x>560</x>
       <y>330</y>
       <width>21</width>
       <height>20</height>
@@ -1606,7 +1606,7 @@
    <widget class="QLabel" name="label_rec_4_3">
     <property name="geometry">
      <rect>
-      <x>580</x>
+      <x>560</x>
       <y>370</y>
       <width>21</width>
       <height>20</height>
@@ -1619,7 +1619,7 @@
    <widget class="QLabel" name="label_rec_5_3">
     <property name="geometry">
      <rect>
-      <x>580</x>
+      <x>560</x>
       <y>390</y>
       <width>21</width>
       <height>20</height>
@@ -1632,7 +1632,7 @@
    <widget class="QLabel" name="label_rec_1_3">
     <property name="geometry">
      <rect>
-      <x>580</x>
+      <x>560</x>
       <y>310</y>
       <width>21</width>
       <height>20</height>
@@ -1645,7 +1645,7 @@
    <widget class="QLabel" name="label_rec_3_3">
     <property name="geometry">
      <rect>
-      <x>580</x>
+      <x>560</x>
       <y>350</y>
       <width>21</width>
       <height>20</height>
@@ -1658,7 +1658,7 @@
    <widget class="QLabel" name="label_rec_2_4">
     <property name="geometry">
      <rect>
-      <x>600</x>
+      <x>580</x>
       <y>330</y>
       <width>21</width>
       <height>20</height>
@@ -1671,7 +1671,7 @@
    <widget class="QLabel" name="label_rec_4_4">
     <property name="geometry">
      <rect>
-      <x>600</x>
+      <x>580</x>
       <y>370</y>
       <width>21</width>
       <height>20</height>
@@ -1684,7 +1684,7 @@
    <widget class="QLabel" name="label_rec_5_4">
     <property name="geometry">
      <rect>
-      <x>600</x>
+      <x>580</x>
       <y>390</y>
       <width>21</width>
       <height>20</height>
@@ -1697,7 +1697,7 @@
    <widget class="QLabel" name="label_rec_1_4">
     <property name="geometry">
      <rect>
-      <x>600</x>
+      <x>580</x>
       <y>310</y>
       <width>21</width>
       <height>20</height>
@@ -1710,7 +1710,7 @@
    <widget class="QLabel" name="label_rec_3_4">
     <property name="geometry">
      <rect>
-      <x>600</x>
+      <x>580</x>
       <y>350</y>
       <width>21</width>
       <height>20</height>
@@ -1723,7 +1723,7 @@
    <widget class="QLabel" name="label_rec_2_5">
     <property name="geometry">
      <rect>
-      <x>620</x>
+      <x>600</x>
       <y>330</y>
       <width>21</width>
       <height>20</height>
@@ -1736,7 +1736,7 @@
    <widget class="QLabel" name="label_rec_4_5">
     <property name="geometry">
      <rect>
-      <x>620</x>
+      <x>600</x>
       <y>370</y>
       <width>21</width>
       <height>20</height>
@@ -1749,7 +1749,7 @@
    <widget class="QLabel" name="label_rec_5_5">
     <property name="geometry">
      <rect>
-      <x>620</x>
+      <x>600</x>
       <y>390</y>
       <width>21</width>
       <height>20</height>
@@ -1762,7 +1762,7 @@
    <widget class="QLabel" name="label_rec_1_5">
     <property name="geometry">
      <rect>
-      <x>620</x>
+      <x>600</x>
       <y>310</y>
       <width>21</width>
       <height>20</height>
@@ -1775,7 +1775,7 @@
    <widget class="QLabel" name="label_rec_3_5">
     <property name="geometry">
      <rect>
-      <x>620</x>
+      <x>600</x>
       <y>350</y>
       <width>21</width>
       <height>20</height>
@@ -1788,7 +1788,7 @@
    <widget class="QLabel" name="label_rec_2_6">
     <property name="geometry">
      <rect>
-      <x>640</x>
+      <x>620</x>
       <y>330</y>
       <width>21</width>
       <height>20</height>
@@ -1801,7 +1801,7 @@
    <widget class="QLabel" name="label_rec_4_6">
     <property name="geometry">
      <rect>
-      <x>640</x>
+      <x>620</x>
       <y>370</y>
       <width>21</width>
       <height>20</height>
@@ -1814,7 +1814,7 @@
    <widget class="QLabel" name="label_rec_5_6">
     <property name="geometry">
      <rect>
-      <x>640</x>
+      <x>620</x>
       <y>390</y>
       <width>21</width>
       <height>20</height>
@@ -1827,7 +1827,7 @@
    <widget class="QLabel" name="label_rec_1_6">
     <property name="geometry">
      <rect>
-      <x>640</x>
+      <x>620</x>
       <y>310</y>
       <width>21</width>
       <height>20</height>
@@ -1840,7 +1840,7 @@
    <widget class="QLabel" name="label_rec_3_6">
     <property name="geometry">
      <rect>
-      <x>640</x>
+      <x>620</x>
       <y>350</y>
       <width>21</width>
       <height>20</height>
@@ -1853,7 +1853,7 @@
    <widget class="QLabel" name="label_rec_2_7">
     <property name="geometry">
      <rect>
-      <x>660</x>
+      <x>640</x>
       <y>330</y>
       <width>21</width>
       <height>20</height>
@@ -1866,7 +1866,7 @@
    <widget class="QLabel" name="label_rec_4_7">
     <property name="geometry">
      <rect>
-      <x>660</x>
+      <x>640</x>
       <y>370</y>
       <width>21</width>
       <height>20</height>
@@ -1879,7 +1879,7 @@
    <widget class="QLabel" name="label_rec_5_7">
     <property name="geometry">
      <rect>
-      <x>660</x>
+      <x>640</x>
       <y>390</y>
       <width>21</width>
       <height>20</height>
@@ -1892,7 +1892,7 @@
    <widget class="QLabel" name="label_rec_1_7">
     <property name="geometry">
      <rect>
-      <x>660</x>
+      <x>640</x>
       <y>310</y>
       <width>21</width>
       <height>20</height>
@@ -1905,7 +1905,7 @@
    <widget class="QLabel" name="label_rec_3_7">
     <property name="geometry">
      <rect>
-      <x>660</x>
+      <x>640</x>
       <y>350</y>
       <width>21</width>
       <height>20</height>
@@ -1918,7 +1918,7 @@
    <widget class="QLabel" name="label_sem_8">
     <property name="geometry">
      <rect>
-      <x>680</x>
+      <x>660</x>
       <y>290</y>
       <width>31</width>
       <height>20</height>
@@ -1931,7 +1931,7 @@
    <widget class="QLabel" name="label_sem_9">
     <property name="geometry">
      <rect>
-      <x>710</x>
+      <x>690</x>
       <y>290</y>
       <width>31</width>
       <height>20</height>
@@ -1944,7 +1944,7 @@
    <widget class="QLabel" name="label_sem_10">
     <property name="geometry">
      <rect>
-      <x>740</x>
+      <x>720</x>
       <y>290</y>
       <width>31</width>
       <height>20</height>
@@ -1957,7 +1957,7 @@
    <widget class="QLabel" name="label_rec_3_8">
     <property name="geometry">
      <rect>
-      <x>690</x>
+      <x>670</x>
       <y>350</y>
       <width>21</width>
       <height>20</height>
@@ -1970,7 +1970,7 @@
    <widget class="QLabel" name="label_rec_1_8">
     <property name="geometry">
      <rect>
-      <x>690</x>
+      <x>670</x>
       <y>310</y>
       <width>21</width>
       <height>20</height>
@@ -1983,7 +1983,7 @@
    <widget class="QLabel" name="label_rec_5_8">
     <property name="geometry">
      <rect>
-      <x>690</x>
+      <x>670</x>
       <y>390</y>
       <width>21</width>
       <height>20</height>
@@ -1996,7 +1996,7 @@
    <widget class="QLabel" name="label_rec_4_8">
     <property name="geometry">
      <rect>
-      <x>690</x>
+      <x>670</x>
       <y>370</y>
       <width>21</width>
       <height>20</height>
@@ -2009,7 +2009,7 @@
    <widget class="QLabel" name="label_rec_2_8">
     <property name="geometry">
      <rect>
-      <x>690</x>
+      <x>670</x>
       <y>330</y>
       <width>21</width>
       <height>20</height>
@@ -2022,7 +2022,7 @@
    <widget class="QLabel" name="label_rec_3_9">
     <property name="geometry">
      <rect>
-      <x>720</x>
+      <x>700</x>
       <y>350</y>
       <width>21</width>
       <height>20</height>
@@ -2035,7 +2035,7 @@
    <widget class="QLabel" name="label_rec_1_9">
     <property name="geometry">
      <rect>
-      <x>720</x>
+      <x>700</x>
       <y>310</y>
       <width>21</width>
       <height>20</height>
@@ -2048,7 +2048,7 @@
    <widget class="QLabel" name="label_rec_5_9">
     <property name="geometry">
      <rect>
-      <x>720</x>
+      <x>700</x>
       <y>390</y>
       <width>21</width>
       <height>20</height>
@@ -2061,7 +2061,7 @@
    <widget class="QLabel" name="label_rec_4_9">
     <property name="geometry">
      <rect>
-      <x>720</x>
+      <x>700</x>
       <y>370</y>
       <width>21</width>
       <height>20</height>
@@ -2074,7 +2074,7 @@
    <widget class="QLabel" name="label_rec_2_9">
     <property name="geometry">
      <rect>
-      <x>720</x>
+      <x>700</x>
       <y>330</y>
       <width>21</width>
       <height>20</height>
@@ -2087,7 +2087,7 @@
    <widget class="QLabel" name="label_rec_3_10">
     <property name="geometry">
      <rect>
-      <x>750</x>
+      <x>730</x>
       <y>350</y>
       <width>21</width>
       <height>20</height>
@@ -2100,7 +2100,7 @@
    <widget class="QLabel" name="label_rec_1_10">
     <property name="geometry">
      <rect>
-      <x>750</x>
+      <x>730</x>
       <y>310</y>
       <width>21</width>
       <height>20</height>
@@ -2113,7 +2113,7 @@
    <widget class="QLabel" name="label_rec_5_10">
     <property name="geometry">
      <rect>
-      <x>750</x>
+      <x>730</x>
       <y>390</y>
       <width>21</width>
       <height>20</height>
@@ -2126,7 +2126,7 @@
    <widget class="QLabel" name="label_rec_4_10">
     <property name="geometry">
      <rect>
-      <x>750</x>
+      <x>730</x>
       <y>370</y>
       <width>21</width>
       <height>20</height>
@@ -2139,7 +2139,7 @@
    <widget class="QLabel" name="label_rec_2_10">
     <property name="geometry">
      <rect>
-      <x>750</x>
+      <x>730</x>
       <y>330</y>
       <width>21</width>
       <height>20</height>
@@ -2152,7 +2152,7 @@
    <widget class="QLabel" name="label_sem_11">
     <property name="geometry">
      <rect>
-      <x>780</x>
+      <x>850</x>
       <y>290</y>
       <width>91</width>
       <height>20</height>
@@ -2165,9 +2165,9 @@
    <widget class="QLabel" name="label_rec_4_11">
     <property name="geometry">
      <rect>
-      <x>780</x>
+      <x>840</x>
       <y>370</y>
-      <width>81</width>
+      <width>101</width>
       <height>20</height>
      </rect>
     </property>
@@ -2181,9 +2181,9 @@
    <widget class="QLabel" name="label_rec_3_11">
     <property name="geometry">
      <rect>
-      <x>780</x>
+      <x>840</x>
       <y>350</y>
-      <width>81</width>
+      <width>101</width>
       <height>20</height>
      </rect>
     </property>
@@ -2197,9 +2197,9 @@
    <widget class="QLabel" name="label_rec_2_11">
     <property name="geometry">
      <rect>
-      <x>780</x>
+      <x>840</x>
       <y>330</y>
-      <width>81</width>
+      <width>101</width>
       <height>20</height>
      </rect>
     </property>
@@ -2213,9 +2213,9 @@
    <widget class="QLabel" name="label_rec_1_11">
     <property name="geometry">
      <rect>
-      <x>780</x>
+      <x>840</x>
       <y>310</y>
-      <width>81</width>
+      <width>101</width>
       <height>20</height>
      </rect>
     </property>
@@ -2229,9 +2229,9 @@
    <widget class="QLabel" name="label_rec_5_11">
     <property name="geometry">
      <rect>
-      <x>780</x>
+      <x>840</x>
       <y>390</y>
-      <width>81</width>
+      <width>101</width>
       <height>20</height>
      </rect>
     </property>
@@ -2240,6 +2240,249 @@
     </property>
     <property name="alignment">
      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_sem_12">
+    <property name="geometry">
+     <rect>
+      <x>750</x>
+      <y>290</y>
+      <width>31</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>r1</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_rec_1_12">
+    <property name="geometry">
+     <rect>
+      <x>760</x>
+      <y>310</y>
+      <width>21</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_rec_4_12">
+    <property name="geometry">
+     <rect>
+      <x>760</x>
+      <y>370</y>
+      <width>21</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_rec_2_12">
+    <property name="geometry">
+     <rect>
+      <x>760</x>
+      <y>330</y>
+      <width>21</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_rec_3_12">
+    <property name="geometry">
+     <rect>
+      <x>760</x>
+      <y>350</y>
+      <width>21</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_rec_5_12">
+    <property name="geometry">
+     <rect>
+      <x>760</x>
+      <y>390</y>
+      <width>21</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_sem_13">
+    <property name="geometry">
+     <rect>
+      <x>780</x>
+      <y>290</y>
+      <width>31</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>r2</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_rec_1_13">
+    <property name="geometry">
+     <rect>
+      <x>790</x>
+      <y>310</y>
+      <width>21</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_rec_4_13">
+    <property name="geometry">
+     <rect>
+      <x>790</x>
+      <y>370</y>
+      <width>21</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_rec_2_13">
+    <property name="geometry">
+     <rect>
+      <x>790</x>
+      <y>330</y>
+      <width>21</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_rec_3_13">
+    <property name="geometry">
+     <rect>
+      <x>790</x>
+      <y>350</y>
+      <width>21</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_rec_5_13">
+    <property name="geometry">
+     <rect>
+      <x>790</x>
+      <y>390</y>
+      <width>21</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_rec_2_14">
+    <property name="geometry">
+     <rect>
+      <x>820</x>
+      <y>330</y>
+      <width>21</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_rec_1_14">
+    <property name="geometry">
+     <rect>
+      <x>820</x>
+      <y>310</y>
+      <width>21</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_rec_4_14">
+    <property name="geometry">
+     <rect>
+      <x>820</x>
+      <y>370</y>
+      <width>21</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_sem_14">
+    <property name="geometry">
+     <rect>
+      <x>810</x>
+      <y>290</y>
+      <width>31</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>r3</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_rec_5_14">
+    <property name="geometry">
+     <rect>
+      <x>820</x>
+      <y>390</y>
+      <width>21</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_rec_3_14">
+    <property name="geometry">
+     <rect>
+      <x>820</x>
+      <y>350</y>
+      <width>21</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0</string>
     </property>
    </widget>
    <zorder>label_trilho2_2</zorder>
@@ -2353,6 +2596,24 @@
    <zorder>label_trem2</zorder>
    <zorder>label_trem4</zorder>
    <zorder>label_trem1</zorder>
+   <zorder>label_sem_12</zorder>
+   <zorder>label_rec_1_12</zorder>
+   <zorder>label_rec_4_12</zorder>
+   <zorder>label_rec_2_12</zorder>
+   <zorder>label_rec_3_12</zorder>
+   <zorder>label_rec_5_12</zorder>
+   <zorder>label_sem_13</zorder>
+   <zorder>label_rec_1_13</zorder>
+   <zorder>label_rec_4_13</zorder>
+   <zorder>label_rec_2_13</zorder>
+   <zorder>label_rec_3_13</zorder>
+   <zorder>label_rec_5_13</zorder>
+   <zorder>label_rec_2_14</zorder>
+   <zorder>label_rec_1_14</zorder>
+   <zorder>label_rec_4_14</zorder>
+   <zorder>label_sem_14</zorder>
+   <zorder>label_rec_5_14</zorder>
+   <zorder>label_rec_3_14</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">

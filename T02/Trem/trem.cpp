@@ -20,6 +20,9 @@
 #define CRUZAMENTO_134 7
 #define CRUZAMENTO_457 8
 #define CRUZAMENTO_256 9
+#define REGIAO_1 10
+#define REGIAO_2 11
+#define REGIAO_3 12
 
 //Construtor
 Trem::Trem(int ID, int x, int y){
@@ -47,9 +50,13 @@ Trem::Trem(int ID, int x, int y, QVector<QSemaphore*> *sem){
         TREM_INICIOU(CAMINHO_2);
         break;
     case 4:
+        TREM_INICIA(REGIAO_3);
+        TREM_INICIOU(REGIAO_3);
+        TREM_INICIA(REGIAO_1);
+        TREM_INICIOU(REGIAO_1);
         //TREM_APONTA(CAMINHO_3);
         TREM_APONTA(CRUZAMENTO_134);
-        TREM_APONTA(CRUZAMENTO_457);
+        //TREM_APONTA(CRUZAMENTO_457);
         TREM_INICIA(CAMINHO_3);
         //TREM_APONTA_INICIA(CAMINHO_3);
         TREM_INICIOU(CAMINHO_3);
@@ -57,6 +64,12 @@ Trem::Trem(int ID, int x, int y, QVector<QSemaphore*> *sem){
         //TREM_APONTA(CAMINHO_4);
         break;
     case 5:
+        TREM_INICIA(REGIAO_3);
+        TREM_INICIOU(REGIAO_3);
+        TREM_INICIA(REGIAO_1);
+        TREM_INICIOU(REGIAO_1);
+        TREM_INICIA(REGIAO_2);
+        TREM_INICIOU(REGIAO_2);
         TREM_APONTA(CRUZAMENTO_457);
         TREM_APONTA(CRUZAMENTO_256);
         TREM_INICIOU(CRUZAMENTO_457);
@@ -79,12 +92,16 @@ void Trem::run(){
         if(velocidade) // Se o trem está parado, não precisa executar isso aqui
             switch(ID){
             case 1:     //Trem 1
-                this->sem->at(10)->acquire(1); // Tentativa de pausa mais estável
                 if (y == 30 && x <330){
                     x+=10;
+					// T1 antes de entrar em P1 e R1
                     if(x==320){
-                        this->
+                        //this->
                         //sem->at(0)->acquire(2);
+                        TREM_INICIA(REGIAO_3);
+                        TREM_INICIOU(REGIAO_3);
+						TREM_INICIA(REGIAO_1);
+						TREM_INICIOU(REGIAO_1);
                         TREM_APONTA(CRUZAMENTO_134);
                         //TREM_APONTA_INICIA(CAMINHO_1);
                         TREM_INICIA(CAMINHO_1);
@@ -95,25 +112,40 @@ void Trem::run(){
                 }
                 else if (x == 330 && y < 150){
                     y+=10;
+					// T1 antes de entrar em P3
                     if(y==140){
                         TREM_INICIA(CAMINHO_3);
                         TREM_INICIOU(CAMINHO_3);
                     }
+					// T1 antes de entrar em C134
                     if(y==150){
                         TREM_INICIOU(CRUZAMENTO_134);
                     }
                 }
                 else{ if (x > 60 && y == 150){
+						// T1 após região R1
+                        if(x==320 && TREM_ESTEVE_NO(REGIAO_1)){
+                            TREM_LIBERA(REGIAO_1);
+                            TREM_LIBEROU(REGIAO_1);
+                        }
+                        // T1 após região R1
+                        if(x==320 && TREM_ESTEVE_NO(REGIAO_3)){
+                            TREM_LIBERA(REGIAO_3);
+                            TREM_LIBEROU(REGIAO_3);
+                        }
+						// T1 após C134
                         if(x==320 && TREM_ESTEVE_NO(CRUZAMENTO_134)){
                             TREM_LIBERA(CRUZAMENTO_134);
                             TREM_LIBEROU(CRUZAMENTO_134);
                         }
+						// T1 após P1
                         if(x==310 && TREM_ESTEVE_NO(CAMINHO_1)){
                             //sem->at(0)->release(2);
                             TREM_LIBERA(CAMINHO_1);
                             TREM_LIBEROU(CAMINHO_1);
                         }
                         x-=10;
+						// T1 após P3
                         if(x==180){
                             TREM_LIBERA(CAMINHO_3);
                             TREM_LIBEROU(CAMINHO_3);
@@ -125,22 +157,26 @@ void Trem::run(){
                 if(velocidade)
                     emit updateGUI(ID, x,y);    //Emite um sinal
                 emit updateStats(this->ID, this->caminhosCriticos, this->sem);
-                this->sem->at(10)->release(1);// Tentativa de pausa mais estável
                 break;
             case 2: //Trem 2
-                this->sem->at(10)->acquire(1); // Tentativa de pausa mais estável
                 if (y == 30 && x <600){
                     x+=10;
+					// T2 antes de entrar em P2 e região R2
                     if(x==590){
+                        TREM_INICIA(REGIAO_3);
+                        TREM_INICIOU(REGIAO_3);
+                        TREM_INICIA(REGIAO_2);
+                        TREM_INICIOU(REGIAO_2);
                         //TREM_APONTA(CAMINHO_2);
                         TREM_APONTA(CRUZAMENTO_256);
-                        TREM_APONTA(CRUZAMENTO_457);
+                        //TREM_APONTA(CRUZAMENTO_457);
                         //TREM_APONTA(CRUZAMENTO_134);
                         //TREM_APONTA_INICIA(CAMINHO_2);
                         TREM_INICIA(CAMINHO_2);
                         TREM_INICIOU(CAMINHO_2);
                         //TREM_APONTA(CAMINHO_5);
                     }
+					// T2 após P1
                     if(x==340 && TREM_ESTEVE_NO(CAMINHO_1)){
                         TREM_LIBERA(CAMINHO_1);
                         TREM_LIBEROU(CAMINHO_1);
@@ -148,53 +184,81 @@ void Trem::run(){
                 }
                 else if (x == 600 && y < 150){
                     y+=10;
+					// T2 antes de entrar em R1, C256 e P5
                     if(y==140){
+						TREM_INICIA(REGIAO_1);
+						TREM_INICIOU(REGIAO_1);
                         // Avaliar os cruzamentos
-                        TREM_INICIA(CAMINHO_5);
+                        TREM_APONTA(CRUZAMENTO_457);
                         TREM_INICIOU(CRUZAMENTO_256);
+                        TREM_INICIA(CAMINHO_5);
                         TREM_INICIOU(CAMINHO_5);
-                        //TREM_APONTA(CRUZAMENTO_457);
                         //TREM_APONTA(CAMINHO_4);
                     }
                 }
                 else {if (x > 330 && y == 150){
                         x-=10;
+						// T2 evitar conflito na região R2
+                        if(x==590 && TREM_ESTEVE_NO(REGIAO_2)){
+                            TREM_LIBERA(REGIAO_2);
+                            TREM_LIBEROU(REGIAO_2);
+                        }
+                        // T2 evitou conflito na região R3
+                        if(x==590 && TREM_ESTEVE_NO(REGIAO_3)){
+                            TREM_LIBERA(REGIAO_3);
+                            TREM_LIBEROU(REGIAO_3);
+                        }
+						// T2 após C256
                         if(x==590 && TREM_ESTEVE_NO(CRUZAMENTO_256)){
                             TREM_LIBERA(CRUZAMENTO_256);
                             TREM_LIBEROU(CRUZAMENTO_256);
                         }
+						// T2 após P2
                         if(x==590 && TREM_ESTEVE_NO(CAMINHO_2)){
                             TREM_LIBERA(CAMINHO_2);
                             TREM_LIBEROU(CAMINHO_2);
                         }
+						// T2 antes de P4
                         if(x==470){
                             TREM_APONTA(CRUZAMENTO_134);
                             TREM_INICIA(CAMINHO_4);
                             TREM_INICIOU(CAMINHO_4);
                             TREM_INICIOU(CRUZAMENTO_457);
                         }
+						// T2 após evitar conflito em R1
+                        if(x==460 && TREM_ESTEVE_NO(REGIAO_1)){
+                            //TREM_APONTA(CAMINHO_1);
+                            TREM_LIBERA(REGIAO_1);
+                            TREM_LIBEROU(REGIAO_1);
+                            //printf("Chegou aqui com x== %d e %d recursos disponíveis!\n",x,sem->at(0)->available());
+                        }
+						// T2 após P5
                         if(x==460 && TREM_ESTEVE_NO(CAMINHO_5)){
                             //TREM_APONTA(CAMINHO_1);
                             TREM_LIBERA(CAMINHO_5);
                             TREM_LIBEROU(CAMINHO_5);
                             //printf("Chegou aqui com x== %d e %d recursos disponíveis!\n",x,sem->at(0)->available());
                         }
+						// T2 após C457
                         if(x==450 && TREM_ESTEVE_NO(CRUZAMENTO_457)){
                             TREM_LIBERA(CRUZAMENTO_457);
                             TREM_LIBEROU(CRUZAMENTO_457);
                         }
+						// T2 antes de C134
                         if(x==340){
                             TREM_INICIOU(CRUZAMENTO_134);
                             TREM_INICIA(CAMINHO_1);
                             TREM_INICIOU(CAMINHO_1);
                         }
-                        if(x==330 && TREM_ESTEVE_NO(CAMINHO_4)){
+                    }
+                    else{
+						// T2 após P4
+                        if(y==140 && x==330 && TREM_ESTEVE_NO(CAMINHO_4)){
                             TREM_LIBERA(CAMINHO_4);
                             TREM_LIBEROU(CAMINHO_4);
                         }
-                    }
-                    else{
-                        if(y==140 && TREM_ESTEVE_NO(CRUZAMENTO_134)){
+						// T2 após C134
+                        if(y==140 && x==330 && TREM_ESTEVE_NO(CRUZAMENTO_134)){
                             TREM_LIBERA(CRUZAMENTO_134);
                             TREM_LIBEROU(CRUZAMENTO_134);
                         }
@@ -203,10 +267,8 @@ void Trem::run(){
                 if(velocidade)
                     emit updateGUI(ID, x,y);    //Emite um sinal
                 emit updateStats(this->ID, this->caminhosCriticos, this->sem);
-                this->sem->at(10)->release(1);// Tentativa de pausa mais estável
                 break;
             case 3: //Trem 3
-                this->sem->at(10)->acquire(1); // Tentativa de pausa mais estável
                 if (x <870 && y == 30){
                     x+=10;
                     if(x==610 && TREM_ESTEVE_NO(CAMINHO_2)){
@@ -218,14 +280,19 @@ void Trem::run(){
                     y+=10;
                 else if (x > 600 && y == 150){
                     x-=10;
+					// T3 antes de entrar em P6
                     if(x == 740){
-                        //TREM_APONTA(CAMINHO_6);
+                        TREM_INICIA(REGIAO_3);
+                        TREM_INICIOU(REGIAO_3);
+                        TREM_INICIA(REGIAO_2);
+                        TREM_INICIOU(REGIAO_2);
                         TREM_APONTA(CRUZAMENTO_256);
                         //TREM_APONTA_INICIA(CAMINHO_6);
                         TREM_INICIA(CAMINHO_6);
                         TREM_INICIOU(CAMINHO_6);
                         //TREM_APONTA(CAMINHO_2);
                     }
+					// T3 antes de entrar em C256
                     if(x == 610){
                         TREM_INICIA(CAMINHO_2);
                         TREM_INICIOU(CAMINHO_2);
@@ -234,10 +301,22 @@ void Trem::run(){
                 }
                 else{
                     y-=10;
+                    // T3 evitou conflito na região R3
+                    if(y == 140 && TREM_ESTEVE_NO(REGIAO_3)){
+                        TREM_LIBERA(REGIAO_3);
+                        TREM_LIBEROU(REGIAO_3);
+                    }
+                    // T3 evitou conflito na região R2
+                    if(y == 140 && TREM_ESTEVE_NO(REGIAO_2)){
+                        TREM_LIBERA(REGIAO_2);
+                        TREM_LIBEROU(REGIAO_2);
+                    }
+					// T3 Passou por C256
                     if(y == 140 && TREM_ESTEVE_NO(CRUZAMENTO_256)){
                         TREM_LIBERA(CRUZAMENTO_256);
                         TREM_LIBEROU(CRUZAMENTO_256);
                     }
+					// T3 Passou por P6
                     if(y == 140 && TREM_ESTEVE_NO(CAMINHO_6)){
                         TREM_LIBERA(CAMINHO_6);
                         TREM_LIBEROU(CAMINHO_6);
@@ -246,39 +325,40 @@ void Trem::run(){
                 if(velocidade)
                     emit updateGUI(ID, x,y);    //Emite um sinal
                 emit updateStats(this->ID, this->caminhosCriticos, this->sem);
-                this->sem->at(10)->release(1);// Tentativa de pausa mais estável
                 break;
             case 4: //Trem 4
-                this->sem->at(10)->acquire(1); // Tentativa de pausa mais estável
                 if (x < 460 && y == 150){
                     x+=10;
-                    /*if(x==190 && !(caminhosCriticos)){ //Posição inicial
-                    TREM_APONTA(CAMINHO_3);
-                    TREM_INICIA(CAMINHO_3);
-                    TREM_INICIOU(CAMINHO_3);
-                    TREM_APONTA(CAMINHO_4);
-                    printf("Chegou aqui com x== %d e %d recursos disponíveis!\n",x,sem->at(2)->available());
-                }*/
+					// T4 antes de entra em C134 
                     if(x==320){
-                        //TREM_APONTA(CRUZAMENTO_457);
+                        TREM_INICIA(REGIAO_2);
+                        TREM_INICIOU(REGIAO_2);
+                        TREM_APONTA(CRUZAMENTO_457);
                         TREM_INICIA(CAMINHO_4);
                         TREM_INICIOU(CAMINHO_4);
                         TREM_INICIOU(CRUZAMENTO_134);
                     }
+                    // T4 evitou conflito na região R3
+                    if(x==330 && TREM_ESTEVE_NO(REGIAO_3)){
+                        TREM_LIBERA(REGIAO_3);
+                        TREM_LIBEROU(REGIAO_3);
+                    }
+                    // T4 evitou conflito na região R1
+                    if(x==330 && TREM_ESTEVE_NO(REGIAO_1)){
+                        TREM_LIBERA(REGIAO_1);
+                        TREM_LIBEROU(REGIAO_1);
+                    }
+					// T4 está em C134 
                     if(x==330 && TREM_ESTEVE_NO(CAMINHO_3)){
                         TREM_LIBERA(CAMINHO_3);
                         TREM_LIBEROU(CAMINHO_3);
-                        //TREM_APONTA(CAMINHO_7);
                     }
-                    if(x==330){
-                        //TREM_LIBERA(CAMINHO_3);
-                        //TREM_LIBEROU(CAMINHO_3);
-                        //TREM_APONTA(CAMINHO_7);
-                    }
+					// T4 passou C134
                     if(x==340 && TREM_ESTEVE_NO(CRUZAMENTO_134)){
                         TREM_LIBERA(CRUZAMENTO_134);
                         TREM_LIBEROU(CRUZAMENTO_134);
                     }
+					// T4 antes de entrar em P7
                     if(x==450){
                         TREM_INICIOU(CRUZAMENTO_457);
                         TREM_INICIA(CAMINHO_7);
@@ -287,10 +367,17 @@ void Trem::run(){
                 }
                 else if (x == 460 && y < 270){
                     y+=10;
+					// T4 evitou conflito na região R2
+                    if(y==160 && TREM_ESTEVE_NO(REGIAO_2)){
+                        TREM_LIBERA(REGIAO_2);
+                        TREM_LIBEROU(REGIAO_2);
+                    }
+					// T4 passou C457
                     if(y==160 && TREM_ESTEVE_NO(CRUZAMENTO_457)){
                         TREM_LIBERA(CRUZAMENTO_457);
                         TREM_LIBEROU(CRUZAMENTO_457);
                     }
+					// T4 passou P4
                     if(y==160 && TREM_ESTEVE_NO(CAMINHO_4)){
                         TREM_LIBERA(CAMINHO_4);
                         TREM_LIBEROU(CAMINHO_4);
@@ -298,6 +385,7 @@ void Trem::run(){
                 }
                 else if (x > 190 && y == 270){
                     x-=10;
+					// T4 passou P7					
                     if(x==440 && TREM_ESTEVE_NO(CAMINHO_7)){
                         TREM_LIBERA(CAMINHO_7);
                         TREM_LIBEROU(CAMINHO_7);
@@ -306,9 +394,14 @@ void Trem::run(){
                 }
                 else{
                     y-=10;
-                    if(y==160){
+					// T4 antes de entrar em P3
+                    if(y==160){ // Antes de entrar no caminho 3
+                        TREM_INICIA(REGIAO_3);
+                        TREM_INICIOU(REGIAO_3);
+						TREM_INICIA(REGIAO_1);
+						TREM_INICIOU(REGIAO_1);
                         TREM_APONTA(CRUZAMENTO_134);
-                        TREM_APONTA(CRUZAMENTO_457);
+                        //TREM_APONTA(CRUZAMENTO_457);
                         //TREM_APONTA_INICIA(CAMINHO_3);
                         TREM_INICIA(CAMINHO_3);
                         TREM_INICIOU(CAMINHO_3);
@@ -319,29 +412,47 @@ void Trem::run(){
                 if(velocidade)
                     emit updateGUI(ID, x,y);    //Emite um sinal
                 emit updateStats(this->ID, this->caminhosCriticos, this->sem);
-                this->sem->at(10)->release(1);// Tentativa de pausa mais estável
                 break;
             case 5: //Trem 5
-                this->sem->at(10)->acquire(1); // Tentativa de pausa mais estável
                 if (x <730 && y == 150){
                     x+=10;
+					// T5 evitou conflito na região R1
+                    if(x==470 && TREM_ESTEVE_NO(REGIAO_1)){
+                        TREM_LIBERA(REGIAO_1);
+                        TREM_LIBEROU(REGIAO_1);
+                    }
+                    // T5 evitou conflito na região R2
+                    if(x == 470 && TREM_ESTEVE_NO(REGIAO_2)){
+                        TREM_LIBERA(REGIAO_2);
+                        TREM_LIBEROU(REGIAO_2);
+                    }
+                    // T5 evitou conflito na região R3
+                    if(x==470 && TREM_ESTEVE_NO(REGIAO_3)){
+                        TREM_LIBERA(REGIAO_3);
+                        TREM_LIBEROU(REGIAO_3);
+                    }
+					// T5 após o C457
                     if(x==470 && TREM_ESTEVE_NO(CRUZAMENTO_457)){
                         TREM_LIBERA(CRUZAMENTO_457);
                         TREM_LIBEROU(CRUZAMENTO_457);
                     }
-                    if(x == 480 && TREM_ESTEVE_NO(CAMINHO_7)){
+					// T5 após o C457
+                    if(x == 470 && TREM_ESTEVE_NO(CAMINHO_7)){
                         TREM_LIBERA(CAMINHO_7);
                         TREM_LIBEROU(CAMINHO_7);
                     }
+					// T5 antes de C256 e de terminar P5
                     if(x == 590){
                         TREM_INICIA(CAMINHO_6);
                         TREM_INICIOU(CAMINHO_6);
                         TREM_INICIOU(CRUZAMENTO_256);
                     }
+					// T5 após o P5
                     if(x == 610 && TREM_ESTEVE_NO(CRUZAMENTO_256)){
                         TREM_LIBERA(CRUZAMENTO_256);
                         TREM_LIBEROU(CRUZAMENTO_256);
                     }
+					// T5 após o C256
                     if(x == 620 && TREM_ESTEVE_NO(CAMINHO_5)){
                         TREM_LIBERA(CAMINHO_5);
                         TREM_LIBEROU(CAMINHO_5);
@@ -349,16 +460,25 @@ void Trem::run(){
                 }
                 else if (x == 730 && y < 270){
                     y+=10;
-                    if(y == 170 && TREM_ESTEVE_NO(CAMINHO_6)){
+					// T5 após o P6
+                    if(y == 160 && TREM_ESTEVE_NO(CAMINHO_6)){
                         TREM_LIBERA(CAMINHO_6);
                         TREM_LIBEROU(CAMINHO_6);
                     }
                 }
                 else if (x > 460 && y == 270){
                     x-=10;
+					// T5 antes de entrar em P7
                     if(x == 470){
+                        TREM_INICIA(REGIAO_3);
+                        TREM_INICIOU(REGIAO_3);
+                        TREM_INICIA(REGIAO_1);
+                        TREM_INICIOU(REGIAO_1);
+                        TREM_INICIA(REGIAO_2);
+                        TREM_INICIOU(REGIAO_2);
                         TREM_APONTA(CRUZAMENTO_457);
-                        TREM_APONTA(CRUZAMENTO_256);
+                        //TREM_INICIOU(CAMINHO_7);
+                        //TREM_APONTA(CRUZAMENTO_256);
                         //TREM_APONTA_INICIA(CAMINHO_7);
                         TREM_INICIA(CAMINHO_7);
                         TREM_INICIOU(CAMINHO_7);
@@ -368,8 +488,9 @@ void Trem::run(){
                 else{
                     y-=10;
                     //printf("Chegou aqui com x: %d, y: %d e %d recursos disponíveis!\n",x,y,sem->at(4)->available());
+					// T5 antes de entrar em P5
                     if(y == 160){
-                        //TREM_APONTA(CRUZAMENTO_256);
+                        TREM_APONTA(CRUZAMENTO_256);
                         TREM_INICIA(CAMINHO_5);
                         TREM_INICIOU(CAMINHO_5);
                         TREM_INICIOU(CRUZAMENTO_457);
@@ -379,7 +500,6 @@ void Trem::run(){
                 if(velocidade)
                     emit updateGUI(ID, x,y);    //Emite um sinal
                 emit updateStats(this->ID, this->caminhosCriticos, this->sem);
-                this->sem->at(10)->release(1);// Tentativa de pausa mais estável
                 break;
             default:
                 break;

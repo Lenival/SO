@@ -10,22 +10,24 @@ MainWindow::MainWindow(QWidget *parent) :
     //QVector<int> caminhosCriticos = QVector<int>(7);
 
     //Cria o vetor de QSemaphore
-    QSemaphore *s1 = new QSemaphore(1);
-    QSemaphore *s2 = new QSemaphore(1);
-    QSemaphore *s3 = new QSemaphore(1);
-    QSemaphore *s4 = new QSemaphore(1);
-    QSemaphore *s5 = new QSemaphore(1);
-    QSemaphore *s6 = new QSemaphore(1);
-    QSemaphore *s7 = new QSemaphore(1);
-    QSemaphore *s134 = new QSemaphore(2);
-    QSemaphore *s457 = new QSemaphore(2);
-    QSemaphore *s256 = new QSemaphore(2);
-    QSemaphore *stop = new QSemaphore(5);
-
+    QSemaphore *s1 = new QSemaphore(1);     // Semáforo de percurso
+    QSemaphore *s2 = new QSemaphore(1);     // Semáforo de percurso
+    QSemaphore *s3 = new QSemaphore(1);     // Semáforo de percurso
+    QSemaphore *s4 = new QSemaphore(1);     // Semáforo de percurso
+    QSemaphore *s5 = new QSemaphore(1);     // Semáforo de percurso
+    QSemaphore *s6 = new QSemaphore(1);     // Semáforo de percurso
+    QSemaphore *s7 = new QSemaphore(1);     // Semáforo de percurso
+    QSemaphore *s134 = new QSemaphore(2);   // Semáforo de cruzamento
+    QSemaphore *s457 = new QSemaphore(2);   // Semáforo de cruzamento
+    QSemaphore *s256 = new QSemaphore(2);   // Semáforo de cruzamento
+    QSemaphore *r1 = new QSemaphore(3);     // Semáforo de região
+    QSemaphore *r2 = new QSemaphore(3);     // Semáforo de região
+    QSemaphore *r3 = new QSemaphore(4);     // Semáforo de região
     //Justando semáforos às posições iniciais dos trens
 
 
-    QVector<QSemaphore*> *sem = new QVector<QSemaphore*>(11);
+    QVector<QSemaphore*> *sem = new QVector<QSemaphore*>();
+
     sem->insert(0,s1);
     sem->insert(1,s2);
     sem->insert(2,s3);
@@ -36,7 +38,9 @@ MainWindow::MainWindow(QWidget *parent) :
     sem->insert(7,s134);
     sem->insert(8,s457);
     sem->insert(9,s256);
-    sem->insert(10,stop);
+    sem->insert(10,r1);
+    sem->insert(11,r2);
+    sem->insert(12,r3);
 
 
     //Cria o trem com seu (ID, posição X, posição Y)
@@ -109,6 +113,9 @@ void MainWindow::updateSemStats(int id, int caminhosCriticos, QVector<QSemaphore
         ui->label_rec_1_8->setText(QString::number(semVector->at(7)->available()));
         ui->label_rec_1_9->setText(QString::number(semVector->at(8)->available()));
         ui->label_rec_1_10->setText(QString::number(semVector->at(9)->available()));
+        ui->label_rec_1_12->setText(QString::number(semVector->at(10)->available()));
+        ui->label_rec_1_13->setText(QString::number(semVector->at(11)->available()));
+        ui->label_rec_1_14->setText(QString::number(semVector->at(12)->available()));
         ui->label_rec_1_11->setText(QString::number(caminhosCriticos,2));
         break;
     case 2:
@@ -122,6 +129,9 @@ void MainWindow::updateSemStats(int id, int caminhosCriticos, QVector<QSemaphore
         ui->label_rec_2_8->setText(QString::number(semVector->at(7)->available()));
         ui->label_rec_2_9->setText(QString::number(semVector->at(8)->available()));
         ui->label_rec_2_10->setText(QString::number(semVector->at(9)->available()));
+        ui->label_rec_2_12->setText(QString::number(semVector->at(10)->available()));
+        ui->label_rec_2_13->setText(QString::number(semVector->at(11)->available()));
+        ui->label_rec_2_14->setText(QString::number(semVector->at(12)->available()));
         ui->label_rec_2_11->setText(QString::number(caminhosCriticos,2));
         break;
     case 3:
@@ -135,6 +145,9 @@ void MainWindow::updateSemStats(int id, int caminhosCriticos, QVector<QSemaphore
         ui->label_rec_3_8->setText(QString::number(semVector->at(7)->available()));
         ui->label_rec_3_9->setText(QString::number(semVector->at(8)->available()));
         ui->label_rec_3_10->setText(QString::number(semVector->at(9)->available()));
+        ui->label_rec_3_12->setText(QString::number(semVector->at(10)->available()));
+        ui->label_rec_3_13->setText(QString::number(semVector->at(11)->available()));
+        ui->label_rec_3_14->setText(QString::number(semVector->at(12)->available()));
         ui->label_rec_3_11->setText(QString::number(caminhosCriticos,2));
         break;
     case 4:
@@ -148,6 +161,9 @@ void MainWindow::updateSemStats(int id, int caminhosCriticos, QVector<QSemaphore
         ui->label_rec_4_8->setText(QString::number(semVector->at(7)->available()));
         ui->label_rec_4_9->setText(QString::number(semVector->at(8)->available()));
         ui->label_rec_4_10->setText(QString::number(semVector->at(9)->available()));
+        ui->label_rec_4_12->setText(QString::number(semVector->at(10)->available()));
+        ui->label_rec_4_13->setText(QString::number(semVector->at(11)->available()));
+        ui->label_rec_4_14->setText(QString::number(semVector->at(12)->available()));
         ui->label_rec_4_11->setText(QString::number(caminhosCriticos,2));
         break;
     case 5:
@@ -161,6 +177,9 @@ void MainWindow::updateSemStats(int id, int caminhosCriticos, QVector<QSemaphore
         ui->label_rec_5_8->setText(QString::number(semVector->at(7)->available()));
         ui->label_rec_5_9->setText(QString::number(semVector->at(8)->available()));
         ui->label_rec_5_10->setText(QString::number(semVector->at(9)->available()));
+        ui->label_rec_5_12->setText(QString::number(semVector->at(10)->available()));
+        ui->label_rec_5_13->setText(QString::number(semVector->at(11)->available()));
+        ui->label_rec_5_14->setText(QString::number(semVector->at(12)->available()));
         ui->label_rec_5_11->setText(QString::number(caminhosCriticos,2));
         break;
     default:

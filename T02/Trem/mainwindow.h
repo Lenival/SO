@@ -59,7 +59,9 @@ private:
     QSemaphore *s134;
     QSemaphore *s457;
     QSemaphore *s256;
-    QSemaphore *stop;
+    QSemaphore *r1;
+    QSemaphore *r2;
+    QSemaphore *r3;
 
     QVector<QSemaphore*> sem;
 };
